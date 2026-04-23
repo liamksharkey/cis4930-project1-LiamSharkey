@@ -1,0 +1,91 @@
+{% extends 'myapp/base.html' %}
+
+{% block content %}
+
+<h1>{{ game.name }}</h1>
+
+<hr>
+
+<h2>Basic Info</h2>
+<p><strong>App ID:</strong> {{ game.appid }}</p>
+<p><strong>Release Date:</strong> {{ game.release_date }}</p>
+<p><strong>Price:</strong> ${{ game.price }}</p>
+<p><strong>Discount:</strong> {{ game.discount }}%</p>
+
+<hr>
+
+<h2>Platform Support</h2>
+<p><strong>Windows:</strong> {{ game.windows }}</p>
+<p><strong>Mac:</strong> {{ game.mac }}</p>
+<p><strong>Linux:</strong> {{ game.linux }}</p>
+
+<hr>
+
+<h2>Content</h2>
+<p><strong>DLC Count:</strong> {{ game.dlc_count }}</p>
+<p><strong>Achievements:</strong> {{ game.achievements }}</p>
+<p><strong>Categories:</strong> {{ game.categories }}</p>
+<p><strong>Genres:</strong> {{ game.genres }}</p>
+<p><strong>Tags:</strong> {{ game.tags }}</p>
+
+<hr>
+
+<h2>Languages</h2>
+
+<p><strong>Supported Languages:</strong></p>
+<ul>
+    {% for lang in game.supported_languages %}
+        <li>{{ lang }}</li>
+    {% endfor %}
+</ul>
+
+<p><strong>Full Audio Languages:</strong></p>
+<ul>
+    {% for lang in game.full_audio_languages %}
+        <li>{{ lang }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h2>Companies</h2>
+<p><strong>Developers:</strong></p>
+<ul>
+    {% for dev in game.developers %}
+        <li>{{ dev }}</li>
+    {% endfor %}
+</ul>
+
+<p><strong>Publishers:</strong></p>
+<ul>
+    {% for pub in game.publishers %}
+        <li>{{ pub }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h2>Engagement Metrics</h2>
+<p><strong>Peak CCU:</strong> {{ game.peak_ccu }}</p>
+<p><strong>Score Rank:</strong> {{ game.score_rank }}</p>
+<p><strong>Recommendations:</strong> {{ game.recommendations }}</p>
+
+<hr>
+
+<h2>Reviews</h2>
+<p><strong>Positive:</strong> {{ game.positive }}</p>
+<p><strong>Negative:</strong> {{ game.negative }}</p>
+<p><strong>Total Reviews:</strong> {{ game.num_reviews_total }}</p>
+<p><strong>% Positive (Total):</strong> {{ game.pct_pos_total }}</p>
+<p><strong>Recent Reviews:</strong> {{ game.num_reviews_recent }}</p>
+<p><strong>% Positive (Recent):</strong> {{ game.pct_pos_recent }}</p>
+
+<hr>
+
+<h2>Playtime</h2>
+<p><strong>Average (Forever):</strong> {{ game.average_playtime_forever }} hrs</p>
+<p><strong>Average (2 Weeks):</strong> {{ game.average_playtime_2weeks }} hrs</p>
+<p><strong>Median (Forever):</strong> {{ game.median_playtime_forever }} hrs</p>
+<p><strong>Median (2 Weeks):</strong> {{ game.median_playtime_2weeks }} hrs</p>
+
+{% endblock content %}
